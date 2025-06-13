@@ -1,4 +1,5 @@
 const myLibrary = []
+const container = document.querySelector(".container")
 
 function Book(title, author, pages, read) {
   this.title = title,
@@ -18,6 +19,17 @@ function addBookToLibrary(title, author, pages, read){
 addBookToLibrary("The Hobbit", "Tolkien", 783, true)
 
 function displayBook(bookObj) {
-  let titleDiv = document.querySelector(".title");
-  titleDiv.textContent = bookObj.title
+  const bookCard = document.createElement("div");
+  bookCard.classList.add("card");
+  container.appendChild(bookCard);
+
+  let bookTitle = document.createElement("div");
+  bookTitle.classList.add("title");
+  bookTitle.textContent = bookObj.title;
+  bookCard.appendChild(bookTitle);
+  
+  // let titleDiv = document.querySelector(".title");
+  // titleDiv.textContent = bookObj.title
 }
+
+displayBook(myLibrary[0]);
