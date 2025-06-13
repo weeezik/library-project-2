@@ -16,6 +16,8 @@ function addBookToLibrary(title, author, pages, read){
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
   bookCard.classList.add("card");
+  // bookCard.setAttribute("data-id", bookObj.id);
+  // console.log(bookCard.dataset.id);
   container.appendChild(bookCard);
 
   let bookTitle = document.createElement("div");
@@ -40,6 +42,7 @@ function displayBook(bookObj) {
 
   let deleteButton = document.createElement("button");
   deleteButton.classList.add("del");
+  deleteButton.setAttribute("data-id", bookObj.id);
   deleteButton.textContent = "Delete this book"
   bookCard.appendChild(deleteButton);
 }
@@ -75,4 +78,14 @@ submitButton.addEventListener("click", (event) => {
   displayBook(myLibrary.at(-1));
 })
 
+// const cards = document.querySelectorAll(".card");
+// const allCards = Array.from(cards);
+
+// for (const card of allCards) {
+//   console.log(card);
+//   console.log(card.dataset.id);
+// }
+
+//Identify which delete button was clicked.
+const deleteButton = document.querySelector
 
