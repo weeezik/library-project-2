@@ -10,17 +10,29 @@
   <h1>Library</h1>
   <div class="container">
   </div>
-  <dialog>
-    <form id="bookForm" method="dialog">
+  <dialog id="modal">
+    <form>
       <label for="title">Title</label>
       <input type="text" id="title">
       <label for="author">Author</label>
       <input type="text" id="author">
       <label for="pages">Pages</label>
       <input type="number" id="pages">
-      <label for="read">Have you read it?</label>
-      <input type="checkbox" id="read">
-      <button>Submit</button>
+      <fieldset>
+        <legend>Have you read it?</legend>
+        <div>
+          <label for="true">Yes</label>
+          <input type="radio" id="true" name="read" value="true">
+        </div>
+        <div>
+          <label for="false">No</label>
+          <input type="radio" id="false" name="read" value="false">
+        </div>
+      </fieldset>
+      <!-- <label for="read">Have you read it?</label>
+      <input type="radio" id="true" name="read" value="true">
+      <input type="radio" id="false" name="read" value="false"> -->
+      <button id="submitButton">Submit</button>
     </form>
   </dialog>
   <button class="showModalButton">New Book</button>

@@ -16,9 +16,9 @@ function addBookToLibrary(title, author, pages, read){
   myLibrary.push(new Book(title, author, pages, read))
 }
 
-addBookToLibrary("The Hobbit", "Tolkien", 783, true)
-addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true)
-addBookToLibrary("Star Wars", "George Lucas", 557, false)
+addBookToLibrary("The Hobbit", "Tolkien", 783, true);
+addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true);
+addBookToLibrary("Star Wars", "George Lucas", 557, false);
 
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
@@ -55,11 +55,25 @@ function displayEveryBook(library) {
 displayEveryBook(myLibrary);
 
 
-const dialog = document.querySelector("dialog");
+const dialog = document.querySelector("#modal");
 const showModalButton = document.querySelector(".showModalButton");
+const submitButton = document.querySelector("#submitButton");
+let inputTitle = dialog.querySelector("#title");
+let inputAuthor = dialog.querySelector("#author");
+let inputPages = dialog.querySelector("#pages");
+let inputRead = dialog.querySelector('input[name="read"]:checked');
+console.log(inputRead);
+
 
 showModalButton.addEventListener("click", () => {
-  dialog.showModal();
+  modal.showModal();
 });
 
-const form = document.getElementById("bookForm");
+submitButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  modal.close();
+  addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputRead);
+  displayBook(myLibrary.at(-1));
+})
+
+
