@@ -18,6 +18,7 @@ function addBookToLibrary(title, author, pages, read){
 
 addBookToLibrary("The Hobbit", "Tolkien", 783, true)
 addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true)
+addBookToLibrary("Star Wars", "George Lucas", 557, false)
 
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
