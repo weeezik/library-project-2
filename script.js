@@ -1,3 +1,5 @@
+const myLibrary = []
+
 function Book(title, author, pages, read) {
   this.title = title,
   this.author = author,
@@ -7,9 +9,7 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary(title, author, pages, read){
-  bookObjectName = title.replaceAll(" ", "").toLowerCase(); //remove spaces and make lowercase
-  console.log(bookObjectName);
-  bookObjectName = new Book(title, author, pages, read);
+  myLibrary.push(new Book(title, author, pages, read))
 }
 
 // harryPotter = new Book("Harry Potter", "J.K. Rowling", 345, true)
