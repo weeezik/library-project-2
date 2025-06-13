@@ -17,6 +17,7 @@ h1 {
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -30,3 +31,4 @@ button {
 button:hover {
   border: 2px solid blue
 }
+

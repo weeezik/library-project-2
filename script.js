@@ -53,3 +53,11 @@ function displayEveryBook(library) {
 }
 
 displayEveryBook(myLibrary);
+
+
+const dialog = document.querySelector("dialog");
+const showModalButton = document.querySelector(".showModalButton");
+
+showModalButton.addEventListener("click", () => {
+  dialog.showModal();
+});
