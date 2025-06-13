@@ -58,12 +58,6 @@ displayEveryBook(myLibrary);
 const dialog = document.querySelector("#modal");
 const showModalButton = document.querySelector(".showModalButton");
 const submitButton = document.querySelector("#submitButton");
-let inputTitle = dialog.querySelector("#title");
-let inputAuthor = dialog.querySelector("#author");
-let inputPages = dialog.querySelector("#pages");
-let inputRead = dialog.querySelector('input[name="read"]:checked');
-console.log(inputRead);
-
 
 showModalButton.addEventListener("click", () => {
   modal.showModal();
@@ -72,7 +66,11 @@ showModalButton.addEventListener("click", () => {
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   modal.close();
-  addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputRead);
+  let inputTitle = dialog.querySelector("#title").value;
+  let inputAuthor = dialog.querySelector("#author").value;
+  let inputPages = dialog.querySelector("#pages").value;  
+  let inputRead = document.querySelector('input[name="read"]:checked').value;
+  addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead);
   displayBook(myLibrary.at(-1));
 })
 
