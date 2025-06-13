@@ -9,16 +9,9 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
-// harryPotter = new Book("Harry Potter", "J.K. Rowling", 345, true)
-// starWars = new Book("Star Wars", "George Lucas", 557, false)
-
 function addBookToLibrary(title, author, pages, read){
   myLibrary.push(new Book(title, author, pages, read))
 }
-
-addBookToLibrary("The Hobbit", "Tolkien", 783, true);
-addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true);
-addBookToLibrary("Star Wars", "George Lucas", 557, false);
 
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
@@ -44,6 +37,11 @@ function displayBook(bookObj) {
   bookRead.classList.add("read");
   bookRead.textContent = bookObj.read;
   bookCard.appendChild(bookRead);
+
+  let deleteButton = document.createElement("button");
+  deleteButton.classList.add("del");
+  deleteButton.textContent = "Delete this book"
+  bookCard.appendChild(deleteButton);
 }
 
 function displayEveryBook(library) {
@@ -52,8 +50,11 @@ function displayEveryBook(library) {
   }
 }
 
-displayEveryBook(myLibrary);
+addBookToLibrary("The Hobbit", "Tolkien", 783, true);
+addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true);
+addBookToLibrary("Star Wars", "George Lucas", 557, false);
 
+displayEveryBook(myLibrary);
 
 const dialog = document.querySelector("#modal");
 const showModalButton = document.querySelector(".showModalButton");
@@ -66,10 +67,10 @@ showModalButton.addEventListener("click", () => {
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   modal.close();
-  let inputTitle = dialog.querySelector("#title").value;
-  let inputAuthor = dialog.querySelector("#author").value;
-  let inputPages = dialog.querySelector("#pages").value;  
-  let inputRead = document.querySelector('input[name="read"]:checked').value;
+  const inputTitle = dialog.querySelector("#title").value;
+  const inputAuthor = dialog.querySelector("#author").value;
+  const inputPages = dialog.querySelector("#pages").value;  
+  const inputRead = document.querySelector('input[name="read"]:checked').value;
   addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead);
   displayBook(myLibrary.at(-1));
 })
