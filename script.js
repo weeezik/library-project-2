@@ -17,6 +17,7 @@ function addBookToLibrary(title, author, pages, read){
 // starWars = new Book("Star Wars", "George Lucas", 557, false)
 
 addBookToLibrary("The Hobbit", "Tolkien", 783, true)
+addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true)
 
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
@@ -27,7 +28,22 @@ function displayBook(bookObj) {
   bookTitle.classList.add("title");
   bookTitle.textContent = bookObj.title;
   bookCard.appendChild(bookTitle);
-  
+
+  let bookAuthor = document.createElement("div");
+  bookAuthor.classList.add("author");
+  bookAuthor.textContent = bookObj.author;
+  bookCard.appendChild(bookAuthor);
+
+  let bookPages = document.createElement("div");
+  bookPages.classList.add("pages");
+  bookPages.textContent = bookObj.pages;
+  bookCard.appendChild(bookPages);
+
+  let bookRead = document.createElement("div");
+  bookRead.classList.add("read");
+  bookRead.textContent = bookObj.read;
+  bookCard.appendChild(bookRead);
+
   // let titleDiv = document.querySelector(".title");
   // titleDiv.textContent = bookObj.title
 }
