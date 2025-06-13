@@ -6,3 +6,11 @@ h1 {
   font-family: 'Times New Roman', Times, serif;
   font-weight: 300;
 }
+
+.card {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  height: 150px;
+  width: 150px;
+}

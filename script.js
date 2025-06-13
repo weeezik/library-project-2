@@ -16,3 +16,8 @@ function addBookToLibrary(title, author, pages, read){
 // starWars = new Book("Star Wars", "George Lucas", 557, false)
 
 addBookToLibrary("The Hobbit", "Tolkien", 783, true)
+
+function displayBook(bookObj) {
+  let titleDiv = document.querySelector(".title");
+  titleDiv.textContent = bookObj.title
+}
