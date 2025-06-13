@@ -61,3 +61,5 @@ const showModalButton = document.querySelector(".showModalButton");
 showModalButton.addEventListener("click", () => {
   dialog.showModal();
 });
+
+const form = document.getElementById("bookForm");
