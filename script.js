@@ -9,12 +9,12 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
+// harryPotter = new Book("Harry Potter", "J.K. Rowling", 345, true)
+// starWars = new Book("Star Wars", "George Lucas", 557, false)
+
 function addBookToLibrary(title, author, pages, read){
   myLibrary.push(new Book(title, author, pages, read))
 }
-
-// harryPotter = new Book("Harry Potter", "J.K. Rowling", 345, true)
-// starWars = new Book("Star Wars", "George Lucas", 557, false)
 
 addBookToLibrary("The Hobbit", "Tolkien", 783, true)
 addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true)
@@ -43,9 +43,12 @@ function displayBook(bookObj) {
   bookRead.classList.add("read");
   bookRead.textContent = bookObj.read;
   bookCard.appendChild(bookRead);
-
-  // let titleDiv = document.querySelector(".title");
-  // titleDiv.textContent = bookObj.title
 }
 
-displayBook(myLibrary[0]);
+function displayEveryBook(library) {
+  for (const book of library){
+  displayBook(book)
+  }
+}
+
+displayEveryBook(myLibrary);
