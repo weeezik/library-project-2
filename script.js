@@ -16,8 +16,6 @@ function addBookToLibrary(title, author, pages, read){
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
   bookCard.classList.add("card");
-  // bookCard.setAttribute("data-id", bookObj.id);
-  // console.log(bookCard.dataset.id);
   container.appendChild(bookCard);
 
   let bookTitle = document.createElement("div");
@@ -48,6 +46,10 @@ function displayBook(bookObj) {
 }
 
 function displayEveryBook(library) {
+  // Remove all cards currently on the page
+  // const allPreviousBookCards = document.querySelectorAll("div.card");
+  // allPreviousBookCards.remove();
+  // Add cards for every book in the library
   for (const book of library){
   displayBook(book)
   }
@@ -78,14 +80,19 @@ submitButton.addEventListener("click", (event) => {
   displayBook(myLibrary.at(-1));
 })
 
-// const cards = document.querySelectorAll(".card");
-// const allCards = Array.from(cards);
 
-// for (const card of allCards) {
-//   console.log(card);
-//   console.log(card.dataset.id);
-// }
-
-//Identify which delete button was clicked.
-const deleteButton = document.querySelector
+const delButtons = document.querySelectorAll("button.del");
+const delButtonsArray = Array.from(delButtons);
+  for (const delButton of delButtonsArray) {
+  delButton.addEventListener("click", ()=> {
+    const delBookId = delButton.dataset.id
+      for (let book of myLibrary) {
+        if (book.id === delBookId) {
+          let bookIndex = myLibrary.indexOf(book);
+          myLibrary.splice(bookIndex, 1);
+        }
+      }
+    displayEveryBook(myLibrary);
+  })
+}
 
