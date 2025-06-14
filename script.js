@@ -46,21 +46,12 @@ function displayBook(bookObj) {
 }
 
 function displayEveryBook(library) {
-  // Remove all cards currently on the page
-  // const allPreviousBookCards = document.querySelectorAll("div.card");
-  // allPreviousBookCards.remove();
-  // Add cards for every book in the library
   for (const book of library){
   displayBook(book)
   }
 }
 
-addBookToLibrary("The Hobbit", "Tolkien", 783, true);
-addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true);
-addBookToLibrary("Star Wars", "George Lucas", 557, false);
-
-displayEveryBook(myLibrary);
-
+//Modal Logic
 const dialog = document.querySelector("#modal");
 const showModalButton = document.querySelector(".showModalButton");
 const submitButton = document.querySelector("#submitButton");
@@ -80,6 +71,11 @@ submitButton.addEventListener("click", (event) => {
   displayBook(myLibrary.at(-1));
 })
 
+addBookToLibrary("The Hobbit", "Tolkien", 783, true);
+addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true);
+addBookToLibrary("Star Wars", "George Lucas", 557, false);
+
+displayEveryBook(myLibrary);
 
 const delButtons = document.querySelectorAll("button.del");
 const delButtonsArray = Array.from(delButtons);
@@ -90,9 +86,11 @@ const delButtonsArray = Array.from(delButtons);
         if (book.id === delBookId) {
           let bookIndex = myLibrary.indexOf(book);
           myLibrary.splice(bookIndex, 1);
+          console.log(myLibrary);
+          container.innerHTML = ""; //Deletes previous content
+          displayEveryBook(myLibrary);
         }
       }
-    displayEveryBook(myLibrary);
   })
 }
 
