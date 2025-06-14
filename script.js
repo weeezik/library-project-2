@@ -81,7 +81,7 @@ function displayBook(bookObj) {
 
   let bookRead = document.createElement("div");
   bookRead.classList.add("read");
-  bookRead.textContent = readToWords(bookObj.read);
+  bookRead.textContent = readToWords(convertToBoolean(bookObj.read));
   bookCard.appendChild(bookRead);
 
   let readButton = document.createElement("button");
