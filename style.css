@@ -1,10 +1,26 @@
+.roboto-header {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.montserrat-light {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
+  font-family: "Montserrat", 'Times New Roman', Times, serif;
 }
 
 h1 {
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 300;
+  font-family: "Roboto";
+  font-weight: 500;
 }
 
 .card {
@@ -29,6 +45,7 @@ button.showModalButton {
   border: 1px solid lightblue;
   margin: 20px;
 }
+
 button.showModalButton:hover {
   border: 2px solid blue
 }
@@ -36,10 +53,11 @@ button.showModalButton:hover {
 button.del {
   background-color: red;
   height: 20px;
-  border: 1px solid red;
+  border: 1px solid white;
   border-radius: 10px;
   margin-top: 20px;
 }
+
 button.del:hover {
   background-color: black;
   border: 1px solid black;
@@ -56,6 +74,12 @@ form {
 button.readstatus {
   margin-top: 10px;
   color: black;
-  background-color: white;
-  border: 1px solid black;
+  background-color: green;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+button.readstatus:hover {
+  color: white;
+  background-color: black;
 }
