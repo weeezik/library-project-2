@@ -1,6 +1,21 @@
 const myLibrary = []
 const container = document.querySelector(".container")
 
+function convertToBoolean (checkboxInput) {
+  if (typeof checkboxInput == "string") {
+    if (checkboxInput === 'true') {
+    return true
+  } else if (checkboxInput === 'false') {
+    return false
+  } else {
+    alert("Error with convertToBoolean function.")
+  }
+  } else {
+    return checkboxInput
+  }
+  
+}
+
 function Book(title, author, pages, read) {
   this.title = title,
   this.author = author,
@@ -8,12 +23,13 @@ function Book(title, author, pages, read) {
   this.read = read,
   this.id = crypto.randomUUID();
   this.changeReadStatus = function() {
-    if (this.read == true) {
+    let readStatus = convertToBoolean(this.read);
+    if (readStatus == true) {
       this.read = false;
-    } else if (this.read == false) {
+    } else if (readStatus == false) {
       this.read = true;
     } else {
-      alert("Error with the changeReadStatus prototype function!")
+      alert(`Error with the changeReadStatus prototype function! Read value: ${this.read}`)
     }
     displayEveryBook(myLibrary);
   }
@@ -61,10 +77,14 @@ function displayBook(bookObj) {
   let readButton = document.createElement("button");
   readButton.classList.add("readstatus");
   readButton.setAttribute("data-id", bookObj.id)
-  readButton.textContent = "Change read status"
+  readButton.textContent = "Toggle read status"
   readButton.addEventListener("click", (e) => {
-    alert(e.target.dataset.id)
-  })
+    for (const book of myLibrary) {
+      if (book.id === e.target.dataset.id) {
+        book.changeReadStatus();
+      }
+    }
+  });
   bookCard.appendChild(readButton);
 
   let deleteButton = document.createElement("button");
@@ -100,6 +120,9 @@ submitButton.addEventListener("click", (event) => {
   const inputAuthor = dialog.querySelector("#author").value;
   const inputPages = dialog.querySelector("#pages").value;  
   const inputRead = document.querySelector('input[name="read"]:checked').value;
+  // booleanInputRead = convertToBoolean(inputRead);
+  // console.log(inputRead);
+  // let booleanInputRead = (inputRead === 'true')
   addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead);
   displayEveryBook(myLibrary);
 })
