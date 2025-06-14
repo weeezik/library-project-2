@@ -13,6 +13,16 @@ function addBookToLibrary(title, author, pages, read){
   myLibrary.push(new Book(title, author, pages, read))
 }
 
+function removeBook (bookID, library) {
+  for (const book of library) {
+    if (bookID === book.id) {
+      let bookIndex = library.indexOf(book);
+      library.splice(bookIndex, 1);
+      displayEveryBook(library);
+    }
+  }
+}
+
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
   bookCard.classList.add("card");
@@ -42,10 +52,14 @@ function displayBook(bookObj) {
   deleteButton.classList.add("del");
   deleteButton.setAttribute("data-id", bookObj.id);
   deleteButton.textContent = "Delete this book"
+  deleteButton.addEventListener("click", (e) => {
+    removeBook(e.target.dataset.id, myLibrary);
+  })
   bookCard.appendChild(deleteButton);
 }
 
 function displayEveryBook(library) {
+  container.innerHTML = "";
   for (const book of library){
   displayBook(book)
   }
@@ -68,7 +82,6 @@ submitButton.addEventListener("click", (event) => {
   const inputPages = dialog.querySelector("#pages").value;  
   const inputRead = document.querySelector('input[name="read"]:checked').value;
   addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead);
-  container.innerHTML = "";
   displayEveryBook(myLibrary);
 })
 
@@ -77,33 +90,3 @@ addBookToLibrary("Harry Potter", "J.K. Rowling", 345, true);
 addBookToLibrary("Star Wars", "George Lucas", 557, false);
 
 displayEveryBook(myLibrary);
-
-function updateDelButtons () {
-  const delButtons = document.querySelectorAll("button.del");
-  const delButtonsArray = Array.from(delButtons);
-}
-
-function removeBook (deleteButtons, library) {
-  
-}
-
-for (const delButton of delButtonsArray) {
-delButton.addEventListener("click", ()=> {
-  const delBookId = delButton.dataset.id
-    for (let book of myLibrary) {
-      if (book.id === delBookId) {
-        let bookIndex = myLibrary.indexOf(book);
-        myLibrary.splice(bookIndex, 1);
-        console.log(myLibrary);
-        container.innerHTML = ""; //Deletes previous content
-        displayEveryBook(myLibrary);
-      }
-    }
-})
-}
-
-// const delButton = document.querySelector("button.del");
-// delButton.addEventListener("click", ()=> {
-//   alert("Del button pressed!")
-// })
-
