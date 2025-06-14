@@ -33,57 +33,84 @@ h1 {
   background-color: blue;
   color: white;
   padding: 20px;
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow .7s;
+  transition: background-color 3s ease-in-out 0s;
+}
+.card:hover {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  background-color: darkolivegreen;
 }
 
 div.title {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-family: "Roboto", system-ui;
+}
+
+div.pages, div.read {
+  text-align: right;
 }
 
 button.showModalButton {
   height: 30px;
+  width: 150px;
   border-radius: 10px;
   background-color: lightblue;
   border: 1px solid lightblue;
-  margin: 20px;
+  margin-top: 20px;
+  transition: width 3s ease-out;
+  transition: background-color 3s ease-in;
+  
 }
 
 button.showModalButton:hover {
-  border: 2px solid blue
+  border: 2px solid blue;
+  background-color: blue;
+  color: white;
+  width: 250px;
+  transition: width 2s ease-in-out;
 }
 
 button.del {
   background-color: red;
-  height: 20px;
-  border: 1px solid white;
+  height: 2rem;
+  border: 1px solid red;
   border-radius: 10px;
-  margin-top: 20px;
+  transition: background-color 0.5s;
+  transition: font-weight 1s;
 }
 
 button.del:hover {
-  background-color: black;
-  border: 1px solid black;
-  color: red;
+  color: blue;
+  background-color: white;
+  border: 1px solid white;
+  font-weight: bold;
+}
 
+button.readstatus {
+  height: 2rem;
+  color: white;
+  background-color: burlywood;
+  border: 1px solid burlywood;
+  border-radius: 10px;
+  transition: background-color 0.5s;
+  transition: font-weight 1s;
+}
+
+button.readstatus:hover {
+  color: blue;
+  background-color: white;
+  border: 1px solid white;
+  font-weight: bold;
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 5px;
-}
-
-button.readstatus {
-  margin-top: 10px;
-  color: black;
-  background-color: green;
-  border: 1px solid white;
-  border-radius: 10px;
-}
-
-button.readstatus:hover {
-  color: white;
-  background-color: black;
 }
