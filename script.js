@@ -7,6 +7,16 @@ function Book(title, author, pages, read) {
   this.pages = pages,
   this.read = read,
   this.id = crypto.randomUUID();
+  this.changeReadStatus = function() {
+    if (this.read == true) {
+      this.read = false;
+    } else if (this.read == false) {
+      this.read = true;
+    } else {
+      alert("Error with the changeReadStatus prototype function!")
+    }
+    displayEveryBook(myLibrary);
+  }
 }
 
 function addBookToLibrary(title, author, pages, read){
@@ -47,6 +57,15 @@ function displayBook(bookObj) {
   bookRead.classList.add("read");
   bookRead.textContent = bookObj.read;
   bookCard.appendChild(bookRead);
+
+  let readButton = document.createElement("button");
+  readButton.classList.add("readstatus");
+  readButton.setAttribute("data-id", bookObj.id)
+  readButton.textContent = "Change read status"
+  readButton.addEventListener("click", (e) => {
+    alert(e.target.dataset.id)
+  })
+  bookCard.appendChild(readButton);
 
   let deleteButton = document.createElement("button");
   deleteButton.classList.add("del");
