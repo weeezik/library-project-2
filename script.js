@@ -68,7 +68,8 @@ submitButton.addEventListener("click", (event) => {
   const inputPages = dialog.querySelector("#pages").value;  
   const inputRead = document.querySelector('input[name="read"]:checked').value;
   addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead);
-  displayBook(myLibrary.at(-1));
+  container.innerHTML = "";
+  displayEveryBook(myLibrary);
 })
 
 addBookToLibrary("The Hobbit", "Tolkien", 783, true);
@@ -77,20 +78,32 @@ addBookToLibrary("Star Wars", "George Lucas", 557, false);
 
 displayEveryBook(myLibrary);
 
-const delButtons = document.querySelectorAll("button.del");
-const delButtonsArray = Array.from(delButtons);
-  for (const delButton of delButtonsArray) {
-  delButton.addEventListener("click", ()=> {
-    const delBookId = delButton.dataset.id
-      for (let book of myLibrary) {
-        if (book.id === delBookId) {
-          let bookIndex = myLibrary.indexOf(book);
-          myLibrary.splice(bookIndex, 1);
-          console.log(myLibrary);
-          container.innerHTML = ""; //Deletes previous content
-          displayEveryBook(myLibrary);
-        }
-      }
-  })
+function updateDelButtons () {
+  const delButtons = document.querySelectorAll("button.del");
+  const delButtonsArray = Array.from(delButtons);
 }
+
+function removeBook (deleteButtons, library) {
+  
+}
+
+for (const delButton of delButtonsArray) {
+delButton.addEventListener("click", ()=> {
+  const delBookId = delButton.dataset.id
+    for (let book of myLibrary) {
+      if (book.id === delBookId) {
+        let bookIndex = myLibrary.indexOf(book);
+        myLibrary.splice(bookIndex, 1);
+        console.log(myLibrary);
+        container.innerHTML = ""; //Deletes previous content
+        displayEveryBook(myLibrary);
+      }
+    }
+})
+}
+
+// const delButton = document.querySelector("button.del");
+// delButton.addEventListener("click", ()=> {
+//   alert("Del button pressed!")
+// })
 
