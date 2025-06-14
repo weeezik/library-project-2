@@ -108,8 +108,10 @@ function displayEveryBook(library) {
 const dialog = document.querySelector("#modal");
 const showModalButton = document.querySelector(".showModalButton");
 const submitButton = document.querySelector("#submitButton");
+const form = document.getElementById("frm");
 
 showModalButton.addEventListener("click", () => {
+  form.reset();
   modal.showModal();
 });
 
@@ -122,6 +124,8 @@ submitButton.addEventListener("click", (event) => {
   const inputRead = document.querySelector('input[name="read"]:checked').value;
   addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead);
   displayEveryBook(myLibrary);
+  
+
 })
 
 addBookToLibrary("The Hobbit", "Tolkien", 783, true);
