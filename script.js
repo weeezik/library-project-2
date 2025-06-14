@@ -49,6 +49,16 @@ function removeBook (bookID, library) {
   }
 }
 
+function readToWords (readStatus) {
+  if (readStatus == true) {
+    return "Read"
+  } else if (readStatus == false) {
+    return "Not read"
+  } else {
+    alert("readToWords function is not working.")
+  }
+}
+
 function displayBook(bookObj) {
   const bookCard = document.createElement("div");
   bookCard.classList.add("card");
@@ -61,17 +71,17 @@ function displayBook(bookObj) {
 
   let bookAuthor = document.createElement("div");
   bookAuthor.classList.add("author");
-  bookAuthor.textContent = bookObj.author;
+  bookAuthor.textContent = `by ${bookObj.author}`;
   bookCard.appendChild(bookAuthor);
 
   let bookPages = document.createElement("div");
   bookPages.classList.add("pages");
-  bookPages.textContent = bookObj.pages;
+  bookPages.textContent = `${bookObj.pages} pages`;
   bookCard.appendChild(bookPages);
 
   let bookRead = document.createElement("div");
   bookRead.classList.add("read");
-  bookRead.textContent = bookObj.read;
+  bookRead.textContent = readToWords(bookObj.read);
   bookCard.appendChild(bookRead);
 
   let readButton = document.createElement("button");
