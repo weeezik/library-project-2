@@ -120,9 +120,6 @@ submitButton.addEventListener("click", (event) => {
   const inputAuthor = dialog.querySelector("#author").value;
   const inputPages = dialog.querySelector("#pages").value;  
   const inputRead = document.querySelector('input[name="read"]:checked').value;
-  // booleanInputRead = convertToBoolean(inputRead);
-  // console.log(inputRead);
-  // let booleanInputRead = (inputRead === 'true')
   addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead);
   displayEveryBook(myLibrary);
 })
